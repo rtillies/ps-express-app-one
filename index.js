@@ -3,11 +3,14 @@ const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
 const cookieParser = require('cookie-parser')
+const studentRoutes = require('./routes/studentRoutes')
+const expressRoutes = require('./routes/expressRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 // Connection to DB
 
 // Middleware
-app.use(cookieParser())
+app.use(cookieParser()) // third party middleware
 
 const logReq = (req, res, next) => {
   console.log(` Request received`);
@@ -15,6 +18,17 @@ const logReq = (req, res, next) => {
 }
 
 app.use(logReq)
+
+// Use Router
+app.use('/student', studentRoutes)
+app.use('/express', expressRoutes)
+app.use('/user', userRoutes)
+
+
+// error handling
+app.use((err, req, res, next) => {
+  res.status(400).send(err.message)
+})
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -28,32 +42,32 @@ app.get('/express', (req, res) => {
   res.send('Creating routes with Express is simple')
 })
 
-app.get('/user', (req, res) => {
-  res.send('Received a GET request from the user')
-})
+// app.get('/user', (req, res) => {
+//   res.send('Received a GET request from the user')
+// })
 
-// POST route
-app.post('/user', (req, res) => {
-  res.send('Received a POST request from the user')
-})
+// // POST route
+// app.post('/user', (req, res) => {
+//   res.send('Received a POST request from the user')
+// })
 
 // Regular expressions
 app.get('/ab?cd', (req, res) => {
   res.send('the question mark will get here with acd or abcd')
 })
 
-// Route Parameters
-app.get('/user/:id', (req, res) => {
-  res.send(`Navigated to user page for ${req.params.id}`)
-})
+// // Route Parameters
+// app.get('/user/:id', (req, res) => {
+//   res.send(`Navigated to user page for ${req.params.id}`)
+// })
 
-app.get('/user/:id/profile', (req, res) => {
-  res.send(`Navigated to user profile page for user ${req.params.id}`)
-})
+// app.get('/user/:id/profile', (req, res) => {
+//   res.send(`Navigated to user profile page for user ${req.params.id}`)
+// })
 
-app.get('/user/:id/profile/:data', (req, res) => {
-  res.send(`Navigated to user profile page for ${req.params.id} with the data ${req.params.data}`)
-})
+// app.get('/user/:id/profile/:data', (req, res) => {
+//   res.send(`Navigated to user profile page for ${req.params.id} with the data ${req.params.data}`)
+// })
 
 // Chainable Route Handlers
 app.route('/learner')

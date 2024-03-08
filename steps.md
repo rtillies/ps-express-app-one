@@ -10,3 +10,11 @@
   * `nodemon index.js`
   * prefer to add start script in `package.json`
     * add `"start": "nodemon index.js"` to scripts section
+
+## Typical 
+
+1. Start
+2. Connection to database
+3. Middleware
+4. Routes
+5. Listen port

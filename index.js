@@ -10,6 +10,18 @@ const studentRoutes = require('./routes/studentRoutes')
 const expressRoutes = require('./routes/expressRoutes')
 const userRoutes = require('./routes/userRoutes')
 
+// const fs = require('fs')
+// app.engine('perscholas', (filePath, options, callback) => {
+//   fs.readFile(filePath, (err, content) => {
+//     if (err) return callback(err)
+//   })
+//   const rendered = content
+//     .toString()
+//     .replaceAll()
+// })
+
+// app.set()
+
 // Connection to DB
 
 // Middleware

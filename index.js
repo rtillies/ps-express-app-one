@@ -2,7 +2,10 @@
 const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
-const cookieParser = require('cookie-parser')
+
+const cookieParser = require('cookie-parser') // install package
+
+// Require routes from routes folder
 const studentRoutes = require('./routes/studentRoutes')
 const expressRoutes = require('./routes/expressRoutes')
 const userRoutes = require('./routes/userRoutes')

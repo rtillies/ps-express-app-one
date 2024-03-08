@@ -15,6 +15,7 @@ app.get('/user', (req, res) => {
   res.send('Received a GET request from the user')
 })
 
+// POST route
 app.post('/user', (req, res) => {
   res.send('Received a POST request from the user')
 })
@@ -36,6 +37,18 @@ app.get('/user/:id/profile', (req, res) => {
 app.get('/user/:id/profile/:data', (req, res) => {
   res.send(`Navigated to user profile page for ${req.params.id} with the data ${req.params.data}`)
 })
+
+// Chainable Route Handlers
+app.route('/learner')
+  .get((req, res) => {
+    res.send("Get a random learner")
+  })
+  .post((req, res) => {
+    res.send("Add a new learner")
+  })
+  .put((req, res) => {
+    res.send("Update a learner")
+  })
 
 // Listen to the port
 app.listen(port, ()=> {

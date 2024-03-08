@@ -2,10 +2,13 @@
 const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
+const cookieParser = require('cookie-parser')
 
 // Connection to DB
 
 // Middleware
+app.use(cookieParser())
+
 const logReq = (req, res, next) => {
   console.log(` Request received`);
   next()
@@ -15,7 +18,10 @@ app.use(logReq)
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send("Hello Express!")
+  // res.send("Hello Express!")
+  console.log('Cookies:', req.cookies);
+  console.log('Cookies:', req.signedCookies);
+  res.send("I used cookies!")
 })
 
 app.get('/express', (req, res) => {

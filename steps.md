@@ -13,8 +13,17 @@
 
 ## Typical 
 
-1. Start
+1. Setup
+  * `const express = require('express')`
+  * `const app = express();`
+  * `const port = 3000; // usually Windows 3000, Mac 5000`
 2. Connection to database
 3. Middleware
+  * `app.use()`
+  * Order matters!
 4. Routes
+  * `app.get()`
+  * `app.post()`
+  * `app.put()`
 5. Listen port
+  * `app.listen()`

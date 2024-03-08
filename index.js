@@ -6,7 +6,12 @@ const port = 3000; // usually Windows 3000, Mac 5000
 // Connection to DB
 
 // Middleware
+const logReq = (req, res, next) => {
+  console.log(` Request received`);
+  next()
+}
 
+app.use(logReq)
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -58,6 +63,6 @@ app.route('/learner')
 
 
 // Listen to the port
-app.listen(port, ()=> {
+app.listen(port, () => {
   console.log(`The server is listening on port ${port}`);
 })

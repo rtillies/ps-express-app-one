@@ -1,6 +1,12 @@
+// Setup
 const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
+
+// Connection to DB
+
+// Middleware
+
 
 // ROUTES
 app.get('/', (req, res) => {
@@ -49,6 +55,7 @@ app.route('/learner')
   .put((req, res) => {
     res.send("Update a learner")
   })
+
 
 // Listen to the port
 app.listen(port, ()=> {

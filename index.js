@@ -21,8 +21,8 @@ app.use(logReq)
 
 // Use Router
 app.use('/student', studentRoutes)
-app.use('/express', expressRoutes)
 app.use('/user', userRoutes)
+app.use('/express', expressRoutes)
 
 
 // error handling
@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
   res.send("I used cookies!")
 })
 
-app.get('/express', (req, res) => {
-  res.send('Creating routes with Express is simple')
-})
+// app.get('/express', (req, res) => {
+//   res.send('Creating routes with Express is simple')
+// })
 
 // app.get('/user', (req, res) => {
 //   res.send('Received a GET request from the user')

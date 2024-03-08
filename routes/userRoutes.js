@@ -7,6 +7,8 @@ router.get('/', (req, res) => {
 })
 
 // POST route
+// use Postman to get result
+// http://localhost:3000 (or correct port number)
 router.post('/', (req, res) => {
   res.send('Received a POST request from the user')
 })

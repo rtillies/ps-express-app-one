@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser') // install package
 const studentRoutes = require('./routes/studentRoutes')
 const expressRoutes = require('./routes/expressRoutes')
 const userRoutes = require('./routes/userRoutes')
+const regexRoutes = require('./routes/regexRoutes')
 
 // const fs = require('fs')
 // app.engine('perscholas', (filePath, options, callback) => {
@@ -38,6 +39,7 @@ app.use(logReq)
 app.use('/student', studentRoutes)
 app.use('/user', userRoutes)
 app.use('/express', expressRoutes)
+app.use('/regex', regexRoutes)
 
 
 // error handling
@@ -67,10 +69,10 @@ app.get('/', (req, res) => {
 //   res.send('Received a POST request from the user')
 // })
 
-// Regular expressions
-app.get('/ab?cd', (req, res) => {
-  res.send('the question mark will get here with acd or abcd')
-})
+// // Regular expressions
+// app.get('/ab?cd', (req, res) => {
+//   res.send('the question mark will get here with acd or abcd')
+// })
 
 // // Route Parameters
 // app.get('/user/:id', (req, res) => {

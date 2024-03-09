@@ -1,8 +1,11 @@
+# Introduction to Express
+
 ## Steps to install Node and Express
 
 1. `git init` - create repository from directory
 2. `npm init -y` - initialize Node
 3. `npm i nodemon --save-dev` - add nodemon dependency
+  * `npm install -g nodemon` for global installation
 4. `npm i express` - install express
 5. Create `index.js`
   * `const express = require('express')`
@@ -11,7 +14,7 @@
   * prefer to add start script in `package.json`
     * add `"start": "nodemon index.js"` to scripts section
 
-## Typical 
+## Typical Setup
 
 1. Setup
   * `const express = require('express')`
@@ -25,5 +28,6 @@
   * `app.get()`
   * `app.post()`
   * `app.put()`
+  * Use routers for organization
 5. Listen port
   * `app.listen()`

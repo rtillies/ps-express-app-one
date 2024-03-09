@@ -11,6 +11,7 @@ const expressRoutes = require('./routes/expressRoutes')
 const userRoutes = require('./routes/userRoutes')
 const regexRoutes = require('./routes/regexRoutes')
 const learnerRoutes = require('./routes/learnerRoutes')
+const cookieRoutes = require('./routes/cookieRoutes')
 
 // const fs = require('fs')
 // app.engine('perscholas', (filePath, options, callback) => {
@@ -42,7 +43,7 @@ app.use('/user', userRoutes)
 app.use('/express', expressRoutes)
 app.use('/regex', regexRoutes)
 app.use('/learner', learnerRoutes)
-
+app.use('/cookie', cookieRoutes)
 
 // error handling
 app.use((err, req, res, next) => {
@@ -51,10 +52,6 @@ app.use((err, req, res, next) => {
 
 // ROUTES
 app.get('/', (req, res) => {
-  // res.send("Hello Express!")
-  console.log('Cookies:', req.cookies);
-  console.log('Cookies:', req.signedCookies);
-  // res.send("I used cookies!")
   res.send("Default GET route, no router")
 })
 

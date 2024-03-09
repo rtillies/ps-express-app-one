@@ -50,7 +50,8 @@ app.get('/', (req, res) => {
   // res.send("Hello Express!")
   console.log('Cookies:', req.cookies);
   console.log('Cookies:', req.signedCookies);
-  res.send("I used cookies!")
+  // res.send("I used cookies!")
+  res.send("Default GET route, no router")
 })
 
 // app.get('/express', (req, res) => {

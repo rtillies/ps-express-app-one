@@ -10,6 +10,7 @@ const studentRoutes = require('./routes/studentRoutes')
 const expressRoutes = require('./routes/expressRoutes')
 const userRoutes = require('./routes/userRoutes')
 const regexRoutes = require('./routes/regexRoutes')
+const learnerRoutes = require('./routes/learnerRoutes')
 
 // const fs = require('fs')
 // app.engine('perscholas', (filePath, options, callback) => {
@@ -40,6 +41,7 @@ app.use('/student', studentRoutes)
 app.use('/user', userRoutes)
 app.use('/express', expressRoutes)
 app.use('/regex', regexRoutes)
+app.use('/learner', learnerRoutes)
 
 
 // error handling
@@ -87,17 +89,17 @@ app.get('/', (req, res) => {
 //   res.send(`Navigated to user profile page for ${req.params.id} with the data ${req.params.data}`)
 // })
 
-// Chainable Route Handlers
-app.route('/learner')
-  .get((req, res) => {
-    res.send("Get a random learner")
-  })
-  .post((req, res) => {
-    res.send("Add a new learner")
-  })
-  .put((req, res) => {
-    res.send("Update a learner")
-  })
+// // Chainable Route Handlers
+// app.route('/learner')
+//   .get((req, res) => {
+//     res.send("Get a random learner")
+//   })
+//   .post((req, res) => {
+//     res.send("Add a new learner")
+//   })
+//   .put((req, res) => {
+//     res.send("Update a learner")
+//   })
 
 
 // Listen to the port

@@ -1,4 +1,4 @@
-// Setup
+/* SETUP */
 const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
@@ -25,19 +25,20 @@ const cookieRoutes = require('./routes/cookieRoutes')
 
 // app.set()
 
-// Connection to DB
+/* DATABASE CONNECTION */
 
-// Middleware
+
+/* MIDDLEWARE */
 app.use(cookieParser()) // third party middleware
 
 const logReq = (req, res, next) => {
   console.log(` Request received`);
   next()
 }
-
 app.use(logReq)
 
-// Use Router
+// Use Router Middleware - 
+// app.use(rootPath, fileInRoutesDirectory)
 app.use('/student', studentRoutes)
 app.use('/user', userRoutes)
 app.use('/express', expressRoutes)
@@ -46,58 +47,15 @@ app.use('/learner', learnerRoutes)
 app.use('/cookie', cookieRoutes)
 
 // error handling
+// always 4 arguments: err, req, res, next
 app.use((err, req, res, next) => {
   res.status(400).send(err.message)
 })
 
-// ROUTES
+/* ROUTES - no router needed */
 app.get('/', (req, res) => {
   res.send("Default GET route, no router")
 })
-
-// app.get('/express', (req, res) => {
-//   res.send('Creating routes with Express is simple')
-// })
-
-// app.get('/user', (req, res) => {
-//   res.send('Received a GET request from the user')
-// })
-
-// // POST route
-// app.post('/user', (req, res) => {
-//   res.send('Received a POST request from the user')
-// })
-
-// // Regular expressions
-// app.get('/ab?cd', (req, res) => {
-//   res.send('the question mark will get here with acd or abcd')
-// })
-
-// // Route Parameters
-// app.get('/user/:id', (req, res) => {
-//   res.send(`Navigated to user page for ${req.params.id}`)
-// })
-
-// app.get('/user/:id/profile', (req, res) => {
-//   res.send(`Navigated to user profile page for user ${req.params.id}`)
-// })
-
-// app.get('/user/:id/profile/:data', (req, res) => {
-//   res.send(`Navigated to user profile page for ${req.params.id} with the data ${req.params.data}`)
-// })
-
-// // Chainable Route Handlers
-// app.route('/learner')
-//   .get((req, res) => {
-//     res.send("Get a random learner")
-//   })
-//   .post((req, res) => {
-//     res.send("Add a new learner")
-//   })
-//   .put((req, res) => {
-//     res.send("Update a learner")
-//   })
-
 
 // Listen to the port
 app.listen(port, () => {

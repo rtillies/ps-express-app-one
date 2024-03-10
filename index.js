@@ -11,17 +11,8 @@ const regexRoutes = require('./routes/regexRoutes')
 const learnerRoutes = require('./routes/learnerRoutes')
 const cookieRoutes = require('./routes/cookieRoutes')
 
-// const fs = require('fs')
-// app.engine('perscholas', (filePath, options, callback) => {
-//   fs.readFile(filePath, (err, content) => {
-//     if (err) return callback(err)
-//   })
-//   const rendered = content
-//     .toString()
-//     .replaceAll()
-// })
-
-// app.set()
+// serve static files from the styles directory
+app.use(express.static("./styles"));
 
 /* DATABASE CONNECTION */
 

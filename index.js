@@ -27,7 +27,6 @@ const cookieRoutes = require('./routes/cookieRoutes')
 
 
 /* MIDDLEWARE */
-// app.use(cookieParser()) // third party middleware
 
 const logReq = (req, res, next) => {
   console.log(` Request received`);

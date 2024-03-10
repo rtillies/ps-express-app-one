@@ -3,8 +3,6 @@ const express = require('express')
 const app = express();
 const port = 3000; // usually Windows 3000, Mac 5000
 
-const cookieParser = require('cookie-parser') // install package
-
 // Require routes from routes folder
 const studentRoutes = require('./routes/studentRoutes')
 const expressRoutes = require('./routes/expressRoutes')
@@ -29,7 +27,7 @@ const cookieRoutes = require('./routes/cookieRoutes')
 
 
 /* MIDDLEWARE */
-app.use(cookieParser()) // third party middleware
+// app.use(cookieParser()) // third party middleware
 
 const logReq = (req, res, next) => {
   console.log(` Request received`);

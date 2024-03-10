@@ -11,13 +11,31 @@ const regexRoutes = require('./routes/regexRoutes')
 const learnerRoutes = require('./routes/learnerRoutes')
 const cookieRoutes = require('./routes/cookieRoutes')
 
-// serve static files from the styles directory
-app.use(express.static("./styles"));
-
 /* DATABASE CONNECTION */
 
 
 /* MIDDLEWARE */
+// serve static files from the styles directory
+app.use(express.static("./styles"));
+
+// require the filesystem module
+// define the template engine
+const fs = require("fs");
+app.engine("perscholas", (filePath, options, callback) => {
+  fs.readFile(filePath, (err, content) => {
+    if (err) return callback(err);
+
+    // Here, we take the content of the template file,
+    // convert it to a string, and replace sections of
+    // it with the values being passed to the engine.
+    const rendered = content
+      .toString()
+      .replaceAll("#title#", `${options.title}`)
+      .replace("#content#", `${options.content}`);
+    return callback(null, rendered);
+  });
+});
+
 
 const logReq = (req, res, next) => {
   console.log(` Request received`);

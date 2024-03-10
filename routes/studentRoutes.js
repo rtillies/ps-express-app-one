@@ -1,3 +1,5 @@
+// Request parameter examples
+
 const express = require('express')
 const router = express.Router()
 
@@ -12,10 +14,6 @@ router.get('/:id', (req, res) => {
 
 router.get('/:id/profile', (req, res) => {
   res.send(`Get profile of specific student with id ${id}`)
-})
-
-router.post('/user', (req, res) => {
-  res.send('Received a GET request from the user')
 })
 
 module.exports = router;

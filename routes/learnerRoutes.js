@@ -1,7 +1,8 @@
+// Chainable Route Handlers
+
 const express = require('express')
 const router = express.Router()
 
-// Chainable Route Handlers
 router.route('/')
   .get((req, res) => {
     res.send("Get a random learner")

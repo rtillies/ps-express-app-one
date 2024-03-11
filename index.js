@@ -41,8 +41,7 @@ app.engine("perscholas", (filePath, options, callback) => {
 app.set("views", "./views"); 
 app.set("view engine", "perscholas"); 
 
-
-
+// Log request to the console
 const logReq = (req, res, next) => {
   console.log(` Request received`);
   next()
@@ -68,6 +67,9 @@ app.use((err, req, res, next) => {
 // app.get('/', (req, res) => {
 //   res.send("Default GET route, no router")
 // })
+
+// Set title and content for the view
+// render (viewName, options)
 app.get("/", (req, res) => {
   const options = {
     title: "Rendering Views with Express",
